@@ -27,24 +27,7 @@ document.getElementById('medicalForm').addEventListener('submit', function(event
   const patientStatus = document.getElementById('patientStatus').value;
   const followUp = document.getElementById('followUp').value;
 
-  // 4. Medicamentos dinámicos
-  const medications = [];
-  const container = document.getElementById('medicationsContainer');
-  const medicationBlocks = container.querySelectorAll('div[id^="medication-"]');
-
-  medicationBlocks.forEach(block => {
-    const id = block.id.split('-')[1]; // Extrae el número
-    const name = document.getElementById(`medicationName-${id}`)?.value;
-    const dose = document.getElementById(`medicationDose-${id}`)?.value;
-    const frequency = document.getElementById(`medicationFrequency-${id}`)?.value;
-    const route = document.getElementById(`medicationRoute-${id}`)?.value;
-
-    if (name && dose && frequency && route) {
-      medications.push({ name, dose, frequency, route });
-    }
-  });
-
-  // Objeto completo
+  // Objeto limpio sin medicamentos
   const serviceRequestData = {
     doctor: {
       name: doctorName,
@@ -71,8 +54,7 @@ document.getElementById('medicalForm').addEventListener('submit', function(event
       anesthesia,
       patientStatus,
       followUp
-    },
-    medications
+    }
   };
 
   console.log(serviceRequestData);
@@ -98,3 +80,4 @@ document.getElementById('medicalForm').addEventListener('submit', function(event
     alert('Hubo un error al enviar la solicitud: ' + error.message);
   });
 });
+
