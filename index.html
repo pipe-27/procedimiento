@@ -3,174 +3,198 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Formulario Médico</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"/>
+  <title>Formulario de Procedimiento Clínico</title>
   <style>
-    /* (Se mantiene el CSS original) */
+    body {
+      font-family: Calibri, sans-serif;
+      background-color: #e6fff5;
+      padding: 30px;
+    }
+
+    h1 {
+      color: #2ecc71;
+      text-align: center;
+    }
+
+    form {
+      max-width: 800px;
+      margin: auto;
+      background-color: #ffffff;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(102, 217, 164, 0.3);
+      border: 2px solid #66d9a4;
+    }
+
+    fieldset {
+      border: none;
+      margin-bottom: 20px;
+    }
+
+    legend {
+      font-weight: bold;
+      color: #2ecc71;
+      font-size: 1.2em;
+      margin-bottom: 10px;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+      color: #2ecc71;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #cccccc;
+      border-radius: 4px;
+      font-size: 1em;
+    }
+
+    .medication-block {
+      border: 1px solid #ccc;
+      padding: 15px;
+      margin-top: 15px;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+    }
+
+    button {
+      background-color: #2ecc71;
+      color: #fff;
+      padding: 14px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 20px;
+      width: 100%;
+      box-shadow: 0 4px 6px rgba(46, 204, 113, 0.3);
+      transition: background-color 0.3s ease, transform 0.1s ease;
+    }
+
+    button:hover {
+      background-color: #27ae60;
+    }
+
+    button:active {
+      transform: scale(0.97);
+      box-shadow: 0 2px 4px rgba(46, 204, 113, 0.2);
+    }
   </style>
 </head>
 <body>
-  <h1>Formulario de Procedimiento Médico</h1>
+  <h1>Formulario de Procedimiento Clínico</h1>
   <form id="medicalForm">
 
-    <!-- 1. Datos del Médico Tratante -->
-    <h2>1. Datos del Médico Tratante</h2>
-    <div class="form-group">
-      <label for="doctorName">Nombre del Médico:</label>
-      <input type="text" id="doctorName" name="doctorName" required>
-    </div>
-    <div class="form-group">
-      <label for="specialty">Especialidad Médica:</label>
-      <input type="text" id="specialty" name="specialty" required>
-    </div>
-    <div class="form-group">
-      <label for="institution">Nombre de la Institución Médica:</label>
-      <input type="text" id="institution" name="institution" required>
-    </div>
+    <fieldset>
+      <legend>Datos del Médico</legend>
+      <label for="doctorName">Nombre:</label>
+      <input type="text" id="doctorName" required>
 
-    <!-- 2. Datos del Paciente -->
-    <h2>2. Datos del Paciente</h2>
-    <div class="form-group">
-      <label for="patientName">Nombre completo:</label>
-      <input type="text" id="patientName" name="patientName" required>
-    </div>
-    <div class="form-group">
-      <label for="documentType">Tipo de documento:</label>
-      <select id="documentType" name="documentType" required>
-        <option value="">Seleccione una opción</option>
-        <option value="CC">Cédula de Ciudadanía</option>
-        <option value="TI">Tarjeta de Identidad</option>
-        <option value="CE">Cédula de Extranjería</option>
-        <option value="PA">Pasaporte</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="documentNumber">Número de documento:</label>
-      <input type="text" id="documentNumber" name="documentNumber" required>
-    </div>
-    <div class="form-group">
+      <label for="specialty">Especialidad:</label>
+      <input type="text" id="specialty" required>
+
+      <label for="institution">Institución:</label>
+      <input type="text" id="institution" required>
+    </fieldset>
+
+    <fieldset>
+      <legend>Datos del Paciente</legend>
+      <label for="patientName">Nombre:</label>
+      <input type="text" id="patientName" required>
+
+      <label for="documentType">Tipo de Documento:</label>
+      <input type="text" id="documentType" required>
+
+      <label for="documentNumber">Número de Documento:</label>
+      <input type="text" id="documentNumber" required>
+
       <label for="age">Edad:</label>
-      <input type="number" id="age" name="age" required>
-    </div>
-    <div class="form-group">
+      <input type="number" id="age" required>
+
       <label for="sex">Sexo:</label>
-      <select id="sex" name="sex" required>
-        <option value="">Seleccione</option>
-        <option value="Masculino">Masculino</option>
-        <option value="Femenino">Femenino</option>
-        <option value="Otro">Otro</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="mainDiagnosis">Diagnóstico principal:</label>
-      <input type="text" id="mainDiagnosis" name="mainDiagnosis" required>
-    </div>
-    <div class="form-group">
-      <label for="procedureDone">Procedimiento realizado:</label>
-      <input type="text" id="procedureDone" name="procedureDone" required>
-    </div>
+      <input type="text" id="sex" required>
 
-    <!-- 3. Información del Procedimiento -->
-    <h2>3. Información del Procedimiento</h2>
-    <div class="form-group">
-      <label for="procedureName">Nombre del procedimiento:</label>
-      <input type="text" id="procedureName" name="procedureName" required>
-    </div>
-    <div class="form-group">
-      <label for="procedureCode">Código del procedimiento (CIE-11):</label>
-      <input type="text" id="procedureCode" name="procedureCode">
-    </div>
-    <div class="grid-2">
-      <div class="form-group">
-        <label for="procedureDate">Fecha del procedimiento:</label>
-        <input type="date" id="procedureDate" name="procedureDate" required>
-      </div>
-      <div class="form-group">
-        <label for="procedureTime">Hora del procedimiento:</label>
-        <input type="time" id="procedureTime" name="procedureTime" required>
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="procedureType">Tipo de procedimiento:</label>
-      <input type="text" id="procedureType" name="procedureType">
-    </div>
-    <div class="form-group">
-      <label for="procedureDescription">Descripción detallada del procedimiento:</label>
-      <textarea id="procedureDescription" name="procedureDescription" rows="4" required></textarea>
-    </div>
-    <div class="form-group">
-      <label for="technique">Técnica utilizada:</label>
-      <input type="text" id="technique" name="technique">
-    </div>
-    <div class="form-group">
-      <label for="anesthesia">Anestesia utilizada (tipo, dosis, vía):</label>
-      <input type="text" id="anesthesia" name="anesthesia">
-    </div>
-    <div class="form-group">
-      <label for="patientStatus">Estado del paciente al finalizar:</label>
-      <input type="text" id="patientStatus" name="patientStatus">
-    </div>
-    <div class="form-group">
-      <label for="followUp">Próxima consulta o seguimiento recomendado:</label>
-      <input type="text" id="followUp" name="followUp">
-    </div>
+      <label for="mainDiagnosis">Diagnóstico Principal:</label>
+      <input type="text" id="mainDiagnosis" required>
 
-    <button type="submit">Enviar Solicitud</button>
+      <label for="procedureDone">Procedimiento Realizado:</label>
+      <input type="text" id="procedureDone" required>
+    </fieldset>
+
+    <fieldset>
+      <legend>Información del Procedimiento</legend>
+      <label for="procedureName">Nombre:</label>
+      <input type="text" id="procedureName" required>
+
+      <label for="procedureCode">Código:</label>
+      <input type="text" id="procedureCode" required>
+
+      <label for="procedureDate">Fecha:</label>
+      <input type="date" id="procedureDate" required>
+
+      <label for="procedureTime">Hora:</label>
+      <input type="time" id="procedureTime" required>
+
+      <label for="procedureType">Tipo:</label>
+      <input type="text" id="procedureType" required>
+
+      <label for="procedureDescription">Descripción:</label>
+      <textarea id="procedureDescription" rows="3" required></textarea>
+
+      <label for="technique">Técnica:</label>
+      <input type="text" id="technique" required>
+
+      <label for="anesthesia">Anestesia:</label>
+      <input type="text" id="anesthesia" required>
+
+      <label for="patientStatus">Estado del Paciente:</label>
+      <input type="text" id="patientStatus" required>
+
+      <label for="followUp">Seguimiento:</label>
+      <textarea id="followUp" rows="3" required></textarea>
+    </fieldset>
+
+    <fieldset>
+      <legend>Medicamentos</legend>
+      <div id="medicationsContainer"></div>
+      <button type="button" onclick="addMedication()">Agregar Medicamento</button>
+    </fieldset>
+
+    <button type="submit">Enviar Procedimiento</button>
   </form>
 
-  <!-- Scripts -->
   <script>
-    document.getElementById('medicalForm').addEventListener('submit', function(event) {
-      event.preventDefault();
+    let medicationCounter = 0;
 
-      const serviceRequestData = {
-        doctor: {
-          name: document.getElementById('doctorName').value,
-          specialty: document.getElementById('specialty').value,
-          institution: document.getElementById('institution').value
-        },
-        patient: {
-          name: document.getElementById('patientName').value,
-          documentType: document.getElementById('documentType').value,
-          documentNumber: document.getElementById('documentNumber').value,
-          age: document.getElementById('age').value,
-          sex: document.getElementById('sex').value,
-          mainDiagnosis: document.getElementById('mainDiagnosis').value,
-          procedureDone: document.getElementById('procedureDone').value
-        },
-        procedure: {
-          name: document.getElementById('procedureName').value,
-          code: document.getElementById('procedureCode').value,
-          date: document.getElementById('procedureDate').value,
-          time: document.getElementById('procedureTime').value,
-          type: document.getElementById('procedureType').value,
-          description: document.getElementById('procedureDescription').value,
-          technique: document.getElementById('technique').value,
-          anesthesia: document.getElementById('anesthesia').value,
-          patientStatus: document.getElementById('patientStatus').value,
-          followUp: document.getElementById('followUp').value
-        }
-      };
+    function addMedication() {
+      const container = document.getElementById('medicationsContainer');
+      const div = document.createElement('div');
+      div.className = 'medication-block';
+      div.id = `medication-${medicationCounter}`;
+      div.innerHTML = `
+        <label for="medicationName-${medicationCounter}">Nombre:</label>
+        <input type="text" id="medicationName-${medicationCounter}" required>
 
-      console.log(serviceRequestData);
+        <label for="medicationDose-${medicationCounter}">Dosis:</label>
+        <input type="text" id="medicationDose-${medicationCounter}" required>
 
-      fetch('https://hl7-fhir-ehr-felipe-rubiano.onrender.com/clinical-procedure/', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(serviceRequestData)
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Success:', data);
-            alert('Registro creado exitosamente!');
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-            alert('Hubo un error al crear el registro.');
-        });
-    });   
+        <label for="medicationFrequency-${medicationCounter}">Frecuencia:</label>
+        <input type="text" id="medicationFrequency-${medicationCounter}" required>
+
+        <label for="medicationRoute-${medicationCounter}">Vía de Administración:</label>
+        <input type="text" id="medicationRoute-${medicationCounter}" required>
+      `;
+      container.appendChild(div);
+      medicationCounter++;
+    }
   </script>
+
+  <script src="script.js"></script>
 </body>
 </html>
